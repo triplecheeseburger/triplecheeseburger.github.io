@@ -2,7 +2,7 @@
 
 import FileOrganizer from '@/components/sidebar/FileOrganizer';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function Folder({
   name,
@@ -17,10 +17,18 @@ export default function Folder({
 
   const toggleOpened = () => {
     setOpened((prev) => !prev);
+    localStorage.setItem(name, opened ? 'true' : 'false');
   };
   const onDoubleClick = () => {
     toggleOpened();
   };
+
+  useEffect(() => {
+    setOpened(localStorage.getItem(name) === 'true');
+    return () => {
+      localStorage.setItem(name, opened ? 'true' : 'false');
+    };
+  }, []);
 
   return (
     <div className='inline-block min-w-full'>
