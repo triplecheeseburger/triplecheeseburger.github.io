@@ -3,15 +3,25 @@
 import Selectable from '@/components/global/Selectable';
 import usePost from '@/zustand/post';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 import React, { useEffect } from 'react';
 import { FaRegFile } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
 
 export default function TabBar() {
-  const { posts, top, changeTop, closePost } = usePost();
+  const { posts, top, setPosts, changeTop, closePost } = usePost();
   const router = useRouter();
+  const pathName = usePathname();
+
+  useEffect(() => {
+    changeTop(localStorage.getItem('top') ?? '');
+    setPosts(localStorage.getItem('posts')?.split(',') ?? []);
+    return () => {
+      localStorage.setItem('top', top);
+      localStorage.setItem('posts', posts.join(','));
+    };
+  }, []);
 
   useEffect(() => {
     if (top) {
@@ -25,6 +35,7 @@ export default function TabBar() {
     changeTop(e.currentTarget.title);
   };
 
+  if (!pathName.startsWith('/posts')) return null;
   return (
     <div className='flex flex-row justify-start align-middle h-8 overflow-x-scroll no-scrollbar'>
       {posts.map((post) => (

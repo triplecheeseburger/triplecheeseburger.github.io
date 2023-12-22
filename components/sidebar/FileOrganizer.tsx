@@ -83,7 +83,7 @@ export default function FileOrganizer({
         onDoubleClick={onDoubleClickHandler}
       >
         {gap}
-        <p className='flex flex-row align-middle items-center select-none break-keep'>
+        <p className='flex flex-row align-middle items-center select-none break-keep whitespace-nowrap'>
           {icons[type]}
           {name}
         </p>

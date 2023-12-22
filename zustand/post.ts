@@ -5,6 +5,7 @@ export interface PostStore {
   top: string;
   openPost: (path: string) => void;
   closePost: (path: string) => void;
+  setPosts: (posts: string[]) => void;
   changeTop: (path: string) => void;
   clear: () => void;
 }
@@ -39,6 +40,7 @@ const usePost = create<PostStore>((set) => ({
         };
       }
     }),
+  setPosts: (posts: string[]) => set({ posts }),
   changeTop: (path: string) => set({ top: path }),
   clear: () => set({ posts: [], top: '' }),
 }));
