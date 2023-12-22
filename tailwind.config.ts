@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -30,9 +30,10 @@ const config: Config = {
         'aurora-3': '#EBCB8B',
         'aurora-4': '#A3BE8C',
         'aurora-5': '#B48EAD',
+        'comment-color': '#6C7A96',
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
