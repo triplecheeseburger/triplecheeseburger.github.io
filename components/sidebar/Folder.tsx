@@ -14,20 +14,17 @@ export default function Folder({
   list: React.JSX.Element[];
 }) {
   const [opened, setOpened] = React.useState<boolean>(false);
-
+  const storageKey = name + depth;
   const toggleOpened = () => {
     setOpened((prev) => !prev);
-    localStorage.setItem(name, opened ? 'true' : 'false');
+    localStorage.setItem(storageKey, !opened ? 'true' : 'false');
   };
   const onDoubleClick = () => {
     toggleOpened();
   };
 
   useEffect(() => {
-    setOpened(localStorage.getItem(name) === 'true');
-    return () => {
-      localStorage.setItem(name, opened ? 'true' : 'false');
-    };
+    setOpened(localStorage.getItem(storageKey) === 'true');
   }, []);
 
   return (
