@@ -1,0 +1,40 @@
+---
+title: hi
+date: 2023-12-11
+---
+
+안녕하세요?
+김한결입니다.
+쉽지않네요.
+
+  export default function
+```js showLineNumbers
+export default function File({
+  name,
+  depth,
+  path,
+}: {
+  name: string;
+  depth: number;
+  path: string;
+}) {
+  const router = useRouter();
+  const { openPost } = usePost();
+
+  const onDoubleClick = () => {
+    openPost(path);
+    router.replace('/' + path.replace('.mdx', ''));
+  };
+
+  return (
+    <FileOrganizer
+      onDoubleClick={onDoubleClick}
+      depth={depth}
+      name={name.replace('.mdx', '')}
+      type={'file'}
+    />
+  );
+}
+```
+
+후 인생아.. 저건어디갔지
