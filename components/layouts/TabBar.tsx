@@ -36,7 +36,7 @@ export default function TabBar() {
   };
 
   if (!pathName.startsWith('/posts')) return null;
-  console.log(posts);
+
   return (
     <div className='flex flex-row justify-start align-middle h-8 overflow-x-scroll no-scrollbar'>
       {posts.map((post) => {
