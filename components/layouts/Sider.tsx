@@ -1,25 +1,17 @@
 'use client';
 
 import SiderButton from '@/components/layouts/SiderButton';
-import usePost from '@/zustand/post';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaMinus } from 'react-icons/fa6';
 
-export type SidebarType = 'Posting' | 'Portfolio' | 'Guestbook';
+export type SidebarType = 'Posts' | 'Portfolio' | 'Guestbook';
 export default function Sider({ children }: { children: React.ReactNode }) {
   const [sidebar, setSidebar] = useState<SidebarType | null>(null);
-  const { clear } = usePost();
-  const buttonList: SidebarType[] = ['Posting', 'Portfolio', 'Guestbook'];
+  const buttonList: SidebarType[] = ['Posts', 'Portfolio', 'Guestbook'];
   const closeSider = () => {
     setSidebar(null);
   };
-
-  useEffect(() => {
-    if (sidebar !== 'Posting' && sidebar !== null) {
-      clear();
-    }
-  }, [sidebar, clear]);
 
   return (
     <div className='flex flex-row h-full w-fit flex-shrink-0'>
@@ -33,7 +25,7 @@ export default function Sider({ children }: { children: React.ReactNode }) {
           />
         ))}
       </div>
-      {sidebar === 'Posting' && (
+      {sidebar === 'Posts' && (
         <SidebarLayout closeSider={closeSider}>{children}</SidebarLayout>
       )}
     </div>

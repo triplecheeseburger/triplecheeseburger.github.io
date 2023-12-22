@@ -20,7 +20,7 @@ export default function SiderButton({
   const pathName = usePathname();
 
   const iconMap: { [key: string]: React.ReactNode } = {
-    Posting: <FaFolder />,
+    Posts: <FaFolder />,
     Portfolio: <FaSeedling />,
     Guestbook: <FaCoffee />,
   };
@@ -30,25 +30,18 @@ export default function SiderButton({
   };
 
   const handleLink = () => {
-    if (type === 'Posting') {
-      if (pathName !== '' && !pathName?.startsWith('/posts'))
-        router.replace('/');
-      return;
-    }
     if (pathName.startsWith(`/${type?.toLowerCase()}`)) {
       router.replace('/');
       return;
     }
-    setTimeout(() => {
-      router.push(`/${type.toLowerCase()}`);
-    }, 100);
+    router.push(`/${type.toLowerCase()}`);
   };
 
   return (
     <Selectable clicked={type == current} color={'polar-night-3'}>
       <button
         className='w-5 pl-0.5 m-1'
-        style={{ height: `${type.length * 0.8}rem` }}
+        style={{ height: `${type.length * 0.45 + 3}rem` }}
         onClick={handleOnClick}
       >
         <div onClick={handleLink}>
