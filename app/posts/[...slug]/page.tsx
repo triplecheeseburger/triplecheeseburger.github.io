@@ -6,7 +6,7 @@ import React from 'react';
 
 export default function Page({ params }: { params: { slug: string[] } }) {
   const post = allPosts.find(
-    (post) => post._raw.flattenedPath === decodeURI(params.slug.join('/'))
+    (post) => post.slug === decodeURI(params.slug.join('/'))
   );
   if (!post)
     throw new Error('Post not found for slug: ' + params.slug.join('/'));
@@ -26,7 +26,7 @@ export default function Page({ params }: { params: { slug: string[] } }) {
 }
 
 export const generateStaticParams = async () => {
-  return allPosts.map((post) => ({ slug: post._raw.flattenedPath.split('/') }));
+  return allPosts.map((post) => ({ slug: post.slug.split('/') }));
 };
 
 export const generateMetadata = ({
@@ -35,7 +35,7 @@ export const generateMetadata = ({
   params: { slug: string[] };
 }) => {
   const post = allPosts.find(
-    (post) => post._raw.flattenedPath === decodeURI(params.slug.join('/'))
+    (post) => post.slug === decodeURI(params.slug.join('/'))
   );
   if (!post)
     throw new Error('Post not found for slug: ' + params.slug.join('/'));
