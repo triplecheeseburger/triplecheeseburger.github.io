@@ -8,7 +8,7 @@ export default function Page() {
       <section className='flex flex-row flex-wrap justify-center'>
         {Array.from({ length: 15 }).map((image, index) => (
           <div key={index}>
-            <Image
+            <img
               src={'/portfolio/' + (index + 1) + '.jpeg'}
               alt={`portfolio page ${index + 1}`}
               width={768}
