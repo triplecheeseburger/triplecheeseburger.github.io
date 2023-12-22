@@ -3,7 +3,6 @@
 import regice from '@/public/images/378.png';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 import React, { useEffect } from 'react';
 import { FaHome } from 'react-icons/fa';
