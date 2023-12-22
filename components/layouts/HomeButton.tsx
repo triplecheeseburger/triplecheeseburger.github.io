@@ -26,13 +26,12 @@ export default function HomeButton() {
         onClick={onClick}
         className='text-sm cursor-pointer'
       >{`triplecheeseburger's blog`}</h1>
-      {(pathName.startsWith('/portfolio') ||
-        pathName.startsWith('/guestbook')) && (
+      {
         <div className='flex flex-row items-center'>
           <FaChevronRight className='mx-1 w-3 h-3 text-comment-color' />
           <h2 className='text-sm'>{pathName.split('/')[1]}</h2>
         </div>
-      )}
+      }
       {top &&
         top
           .split('/')
