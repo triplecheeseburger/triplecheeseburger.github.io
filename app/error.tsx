@@ -18,7 +18,7 @@ export default function Error({
     <div className='flex w-full h-full flex-col items-center justify-center p-24'>
       <h2>404 NOT FOUND</h2>
       <button onClick={() => reset()}>
-        <Image
+        <img
           src={'/images/378.png'}
           alt={'image of regice'}
           width={250}

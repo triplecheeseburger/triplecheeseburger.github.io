@@ -1,11 +1,10 @@
 'use client';
 
-import regice from '@/public/images/378.png';
 import usePost from '@/zustand/post';
 
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
+import React from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 
 export default function HomeButton() {
@@ -17,10 +16,10 @@ export default function HomeButton() {
 
   return (
     <section className='flex flex-row content-start w-full h-full items-center'>
-      <Image
+      <img
         onClick={onClick}
         className='w-4 h-4 m-1 cursor-pointer'
-        src={regice}
+        src={'/images/378.png'}
         alt={'image of regice'}
       />
       <h1
