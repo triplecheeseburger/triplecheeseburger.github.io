@@ -3,7 +3,6 @@ import MainLayout from '@/components/layouts/server/MainLayout';
 import type { Metadata } from 'next';
 
 import { JetBrains_Mono } from 'next/font/google';
-import Head from 'next/head';
 
 import React from 'react';
 

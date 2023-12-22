@@ -3,7 +3,7 @@
 import Selectable from '@/components/global/Selectable';
 import usePost from '@/zustand/post';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import React, { useEffect } from 'react';
 import { FaRegFile } from 'react-icons/fa';
@@ -12,7 +12,6 @@ import { IoClose } from 'react-icons/io5';
 export default function TabBar() {
   const { posts, top, changeTop, closePost } = usePost();
   const router = useRouter();
-  const pathName = usePathname();
 
   useEffect(() => {
     if (top) {

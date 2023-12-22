@@ -1,5 +1,4 @@
 import Header from '@/components/layouts/Header';
-import LineBox from '@/components/layouts/LineBox';
 import Sider from '@/components/layouts/Sider';
 import TabBar from '@/components/layouts/TabBar';
 import FileTree from '@/components/sidebar/server/FileTree';
