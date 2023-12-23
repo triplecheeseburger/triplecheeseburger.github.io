@@ -32,6 +32,7 @@ export default function HomeButton() {
           <h2 className='text-sm'>{pathName.split('/')[1]}</h2>
         </div>
       )}
+
       {pathName.startsWith('/posts') &&
         top &&
         top
